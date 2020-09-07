@@ -2,10 +2,10 @@ import 'regenerator-runtime'; /* for async await transpile */
 import './../styles/styles.scss';
 
 (function () {
-    const header = document.querySelector('.header');
+    const headerMobile = document.querySelector('.header-mobile');
 
-    header.onclick = function () {
-        header.classList.toggle('menu-opened');
+    headerMobile.onclick = function () {
+        headerMobile.classList.toggle('menu-opened');
     }
 }());
 
