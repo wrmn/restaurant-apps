@@ -9,6 +9,9 @@ body {
     color: white;
 }
 
+.dot {
+    color: $fontSecondaryColor;
+}
 
 .container {
     margin: 0;
@@ -22,8 +25,33 @@ body {
         .hero-element {
             background: url("./../public/images/heros/hero-image_4.jpg") no-repeat center center scroll;
             background-size: cover;
-            height: 50vh;
+            height: 70vh;
             width: 100%;
+            display: flex;
+
+            .hero-content {
+                margin: auto;
+                text-align: center;
+                padding: 5%;
+
+                background-color: rgba($mainColor, 0.8);
+                border-radius: 10% 0;
+
+                font-family: $mainFont;
+
+                .tagline {
+                    font-size: 2em;
+                }
+
+                .main-logo {
+                    font-size: 6em;
+                    padding-bottom: 10%;
+                }
+            }
+        }
+
+        @media (min-width:660px) {
+            padding-top: 75px;
         }
     }
 }
