@@ -14,13 +14,13 @@ body {
 }
 
 .container {
-    margin: 0;
+    margin: auto;
     padding: 0;
-    width: 100%;
+    width: 96%;
 
     .content {
-        box-shadow: 0 0 65px 15px rgba(#000, 0.2);
-        padding-top: 50px;
+        box-shadow: 0 0 65px 15px rgba(white, 0.1);
+        margin-top: 50px;
 
         .hero-element {
             background: url("./../public/images/heros/hero-image_4.jpg") no-repeat center center scroll;
@@ -40,7 +40,7 @@ body {
                 font-family: $mainFont;
 
                 .tagline {
-                    font-size: 2em;
+                    font-size: 2.5em;
                 }
 
                 .main-logo {
@@ -51,7 +51,11 @@ body {
         }
 
         @media (min-width:660px) {
-            padding-top: 75px;
+            margin-top: 75px;
         }
+    }
+
+    @media (max-width:660px) {
+        width: 100%;
     }
 }
