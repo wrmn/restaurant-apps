@@ -14,8 +14,27 @@
   }
 
   @for $i from 1 through $grid__cols {
+    &__col-r#{$i} {
+      flex-basis: (200 / ($grid__cols / $i)) * 1%;
+    }
     &__col-#{$i} {
       flex-basis: (100 / ($grid__cols / $i)) * 1%;
+    }
+   
+    @media (min-width: 866px) {
+      &__col-r#{$i} {
+        flex-basis: (150 / ($grid__cols / $i)) * 1%;
+      }
+    }
+    @media (min-width: 1281px) {
+      &__col-r#{$i} {
+        flex-basis: (100 / ($grid__cols / $i)) * 1%;
+      }
+    }
+    @media (min-width: 1700px) {
+      &__col-r#{$i} {
+        flex-basis: (75 / ($grid__cols / $i)) * 1%;
+      }
     }
   }
 }
