@@ -1,61 +1,91 @@
-@import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700;800&display=swap");
-@import "./variables";
-@import "./gridding";
-@import "./header-mobile";
-@import "./header";
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700;800&display=swap');
+@import './variables';
+@import './gridding';
+@import './header-mobile';
+@import './header';
 
 body {
-    background: $mainColor;
+  background: $mainColor;
+  color: white;
+  .skip-link {
+    font-family: $mainFont;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: $fontSecondaryColor;
     color: white;
+    padding: 8px;
+    z-index: 100;
+    &:focus {
+      top: 0;
+    }
+  }
 }
 
 .dot {
-    color: $fontSecondaryColor;
+  color: $fontSecondaryColor;
 }
 
 .container {
-    margin: auto;
-    padding: 0;
-    width: 96%;
+  margin: auto;
+  padding: 0;
+  width: 96%;
 
-    .content {
-        box-shadow: 0 0 65px 15px rgba(white, 0.1);
-        margin-top: 50px;
+  .content {
+    margin-top: 75px;
+    font-family: $mainFont;
+    .hero-element {
+      box-shadow: 0 0 65px 15px rgba($fontMainColor, 0.1);
+      background: url('./../public/images/heros/hero-image_4.jpg') no-repeat
+        center center scroll;
+      background-size: cover;
+      height: 70vh;
+      width: 100%;
+      display: flex;
 
-        .hero-element {
-            background: url("./../public/images/heros/hero-image_4.jpg") no-repeat center center scroll;
-            background-size: cover;
-            height: 70vh;
-            width: 100%;
-            display: flex;
+      .hero-content {
+        margin: auto;
+        text-align: center;
+        padding: 5%;
 
-            .hero-content {
-                margin: auto;
-                text-align: center;
-                padding: 5%;
+        background-color: rgba($mainColor, 0.8);
+        border-radius: 10% 0;
 
-                background-color: rgba($mainColor, 0.8);
-                border-radius: 10% 0;
-
-                font-family: $mainFont;
-
-                .tagline {
-                    font-size: 2.5em;
-                }
-
-                .main-logo {
-                    font-size: 6em;
-                    padding-bottom: 10%;
-                }
-            }
+        .tagline {
+          font-size: 2.5em;
         }
 
-        @media (min-width:660px) {
-            margin-top: 75px;
+        .main-logo {
+          font-size: 6em;
+          padding-bottom: 10%;
         }
+      }
+    }
+    .list {
+      margin: auto;
+      width: 100%;
+      padding-top: 2.5%;
+      .list-header {
+        text-align: center;
+        font-size: 2em;
+      }
+      .list-body {
+        .card {
+          box-shadow: 0 4px 8px 0 rgba($fontMainColor, 0.1);
+          transition: 1s;
+          &:hover {
+            box-shadow: 0 8px 16px 0 rgba($fontMainColor, 0.5);
+          }
+        }
+      }
     }
 
-    @media (max-width:660px) {
-        width: 100%;
+    @media (min-width: 660px) {
+      margin-top: 100px;
     }
+  }
+
+  @media (max-width: 660px) {
+    width: 100%;
+  }
 }

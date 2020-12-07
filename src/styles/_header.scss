@@ -1,86 +1,87 @@
 .header {
-    position: fixed;
-    display: block;
-    background: rgba(#000, 0.8);
+  position: fixed;
+  display: block;
+  background: rgba(#1a1b1d, 0.8);
 
-    top: 0;
-    left: 0;
-    height: 75px;
-    width: 100%;
+  top: 0;
+  left: 0;
+  height: 75px;
+  width: 100%;
 
-    overflow: hidden;
-    transition: all 0.5s ease-out, background 1s ease-out;
-    transition-delay: 0.2s;
-    z-index: 1;
+  overflow: hidden;
+  transition: all 0.5s ease-out, background 1s ease-out;
+  transition-delay: 0.2s;
+  z-index: 1;
+  padding-bottom: 10px;
 
-    .main-logo {
-        text-decoration: none;
-        color: white;
-        font-size: 4em;
+  .main-logo {
+    text-decoration: none;
+    color: white;
+    font-size: 4em;
+    font-family: $mainFont;
+
+    .dot {
+      color: $fontSecondaryColor;
+    }
+  }
+
+  ul.menu {
+    list-style: none;
+    text-align: center;
+
+    li.menu-item {
+      border-left: 2px solid $fontSecondaryColor;
+      margin-left: auto;
+
+      a {
+        padding-right: 20px;
+        margin-left: 5px;
+        display: block;
+        position: relative;
+        padding-top: auto;
+        overflow: hidden;
+
+        color: $fontMainColor;
         font-family: $mainFont;
+        font-weight: 400;
+        text-decoration: none;
+        font-size: 1.1em;
+        line-height: 3;
 
-        .dot {
-            color: $fontSecondaryColor;
+        --width: 100%;
+        --time: .5s;
+
+        text {
+          position: relative;
+          z-index: 5;
+          transition: color var(--time);
         }
-    }
 
-    ul.menu {
-        list-style: none;
-        text-align: center;
-
-        li.menu-item {
-            border-left: 2px solid $fontSecondaryColor;
-            margin-left: auto;
-
-            a {
-                padding-right: 20px;
-                margin-left: 5px;
-                display: block;
-                position: relative;
-                padding-top: auto;
-                overflow: hidden;
-
-                color: $fontMainColor;
-                font-family: $mainFont;
-                font-weight: 400;
-                text-decoration: none;
-                font-size: 1.5em;
-                line-height: 3;
-
-                --width: 100%;
-                --time: 1s;
-
-                text {
-                    position: relative;
-                    z-index: 5;
-                    transition: color var(--time);
-                }
-
-                &:hover {
-                    color: white;
-                }
-
-                span {
-                    position: absolute;
-                    display: block;
-                    content: "";
-                    z-index: 0;
-                    width: 0;
-                    height: 0;
-                    background: $fontSecondaryColor;
-                    transform: translateX(0, -50%);
-                    transition: width var(--time), padding-left var(--time);
-                }
-
-                &:hover span {
-                    width: calc(var(--width) * 2.25);
-                    padding-top: calc(var(--width) * 2.25);
-                }
-            }
+        &:hover {
+          color: white;
         }
-    }
 
-    @media (max-width: 660px) {
-        display: none;
+        span {
+          position: absolute;
+          display: block;
+          content: '';
+          z-index: 0;
+          width: 0;
+          height: 0;
+          background: $fontSecondaryColor;
+          transform: translateX(0, -50%);
+          transition: width var(--time), padding-left var(--time);
+        }
+
+        &:hover span {
+          width: calc(var(--width) * 2.25);
+          padding-top: calc(var(--width) * 2.25);
+        }
+      }
     }
+  }
+
+  @media (max-width: 660px) {
+    display: none;
+  }
 }
