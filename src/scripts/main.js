@@ -31,6 +31,7 @@ const main = () => {
     const img = document.createElement('IMG');
 
     img.setAttribute('src', data.pictureId);
+    img.setAttribute('alt', `${data.name} image`);
 
     node.classList.add('gridding__col-r4');
 
@@ -50,7 +51,7 @@ const main = () => {
     rate.classList.add('rating');
 
     imgCont.appendChild(img);
-      imgCont.appendChild(location)
+    imgCont.appendChild(location);
     imgCont.classList.add('content-img');
 
     content.classList.add('card');
