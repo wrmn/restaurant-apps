@@ -21,17 +21,17 @@
       flex-basis: (100 / ($grid__cols / $i)) * 1%;
     }
    
-    @media (min-width: 866px) {
+    @media (min-width: 660px) {
       &__col-r#{$i} {
         flex-basis: (150 / ($grid__cols / $i)) * 1%;
       }
     }
-    @media (min-width: 1281px) {
+    @media (min-width: 860px) {
       &__col-r#{$i} {
         flex-basis: (100 / ($grid__cols / $i)) * 1%;
       }
     }
-    @media (min-width: 1700px) {
+    @media (min-width: 1280px) {
       &__col-r#{$i} {
         flex-basis: (75 / ($grid__cols / $i)) * 1%;
       }
