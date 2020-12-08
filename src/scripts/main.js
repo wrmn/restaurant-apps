@@ -18,11 +18,15 @@ const main = () => {
     const imgCont = document.createElement('DIV');
     const desc = document.createElement('DIV');
     const name = document.createElement('DIV');
+    const rate = document.createElement('DIV');
+    const location = document.createElement('DIV');
     const readMore = document.createElement('A');
     const textName = document.createTextNode(data.name);
-    const textRdmr = document.createTextNode('Read More....');
+    const textLocation = document.createTextNode(data.city);
+    const textRdmr = document.createTextNode('Read More');
+    const textRate = document.createTextNode(`${data.rating} / 5`);
     const textDesc = document.createTextNode(
-      data.description.split(' ').slice(0, 15).join(' '),
+      data.description.split(' ').slice(0, 15).join(' ') + '...',
     );
     const img = document.createElement('IMG');
 
@@ -31,20 +35,28 @@ const main = () => {
     node.classList.add('gridding__col-r4');
 
     readMore.setAttribute('href', '#');
-      readMore.appendChild(textRdmr)
+    readMore.appendChild(textRdmr);
 
     name.appendChild(textName);
     name.classList.add('card-title');
 
+    location.classList.add('location');
+    location.appendChild(textLocation);
+
     desc.appendChild(textDesc);
-desc.appendChild(readMore)
+    desc.appendChild(readMore);
+
+    rate.appendChild(textRate);
+    rate.classList.add('rating');
 
     imgCont.appendChild(img);
+      imgCont.appendChild(location)
     imgCont.classList.add('content-img');
 
     content.classList.add('card');
     content.appendChild(name);
     content.appendChild(imgCont);
+    content.appendChild(rate);
     content.appendChild(desc);
 
     node.appendChild(content);
