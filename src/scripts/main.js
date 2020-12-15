@@ -1,17 +1,30 @@
-import './component/navBar';
-import restaurant from './../DATA.json';
+import Restaurant from './data/data';
 
 const main = () => {
   const menuTrigger = document.querySelector('.burger-container');
   const headerMobile = document.querySelector('.header-mobile');
+  const dataRestaurant = new Restaurant();
 
-  menuTrigger.onclick = function () {
+  dataRestaurant.call('/list', 'GET').then((data) => {
+    display(data.restaurants);
+  });
+
+  menuTrigger.onclick = function() {
     headerMobile.classList.toggle('menu-opened');
     headerMobile.classList.contains('menu-opened') ? tabindex(0) : tabindex(-1);
   };
+};
 
-  restaurant.restaurants.forEach(data => {
-    console.log(`${data.id},${data.name}`);
+const tabindex = (index) => {
+  const items = document.querySelectorAll('.menu-name');
+  items.forEach((item) => {
+    item.tabIndex = index;
+  });
+};
+
+const display = (restaurants) => {
+  restaurants.forEach((restaurant) => {
+    console.log(`${restaurant.id},${restaurant.name}`);
 
     const node = document.createElement('DIV');
     const content = document.createElement('DIV');
@@ -21,17 +34,20 @@ const main = () => {
     const rate = document.createElement('DIV');
     const location = document.createElement('DIV');
     const readMore = document.createElement('A');
-    const textName = document.createTextNode(data.name);
-    const textLocation = document.createTextNode(data.city);
+    const textName = document.createTextNode(restaurant.name);
+    const textLocation = document.createTextNode(restaurant.city);
     const textRdmr = document.createTextNode('Read More');
-    const textRate = document.createTextNode(`${data.rating} / 5`);
+    const textRate = document.createTextNode(`${restaurant.rating} / 5`);
     const textDesc = document.createTextNode(
-      data.description.split(' ').slice(0, 15).join(' ') + '...',
+        restaurant.description.split(' ').slice(0, 15).join(' ') + '...',
     );
     const img = document.createElement('IMG');
 
-    img.setAttribute('src', data.pictureId);
-    img.setAttribute('alt', `${data.name} image`);
+    img.setAttribute(
+        'src',
+        `https://restaurant-api.dicoding.dev/images/small/${restaurant.pictureId}`,
+    );
+    img.setAttribute('alt', `${restaurant.name} image`);
 
     node.classList.add('gridding__col-r4');
 
@@ -62,13 +78,6 @@ const main = () => {
 
     node.appendChild(content);
     document.getElementById('restaurant-list').appendChild(node);
-  });
-};
-
-const tabindex = index => {
-  const items = document.querySelectorAll('.menu-name');
-  items.forEach(item => {
-    item.tabIndex = index;
   });
 };
 
